@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manifest Results & Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Manifest Analysis Results</h1>
+        <p class="subtitle">
+            Below are your profit, retail, and sales dashboards—always live!
+        </p>
+        <div class="summary-block">
+            <h2>Summary</h2>
+            <table>
+                <tr><th>Manifest Name</th><td>{{ summary['Manifest Name'] }}</td></tr>
+                <tr><th>Total Items</th><td>{{ summary['Total Items'] }}</td></tr>
+                <tr><th>Total Retail Value</th><td>${{ "{:,.2f}".format(summary['Total Retail Value']) }}</td></tr>
+                <tr><th>Profit Potential</th><td>${{ "{:,.2f}".format(summary['Profit Potential']) }}</td></tr>
+                <tr><th>Max Bid Recommendation</th><td>${{ "{:,.2f}".format(summary['Max Bid Recommendation']) }}</td></tr>
+            </table>
+        </div>
+        <a href="{{ url_for('analysis') }}" class="button">Go to Full Dashboard</a>
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <h2>Profit Potential by Manifest</h2>
+                <div class="iframe-wrapper">
+                    <iframe
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT1mSF2nLJXY_pXhRLUJC-T8IyJGNOrDsUunWidvgMt90QqPlxyGDPDXPeoKPXmsHX-IG7KYs3gJ6jr/pubchart?oid=1452619550&format=interactive"
+                        allowfullscreen
+                        loading="lazy"
+                        class="dashboard-iframe"
+                    ></iframe>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h2>Total Retail Value by Manifest</h2>
+                <div class="iframe-wrapper">
+                    <iframe
+                        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT1mSF2nLJXY_pXhRLUJC-T8IyJGNOrDsUunWidvgMt90QqPlxyGDPDXPeoKPXmsHX-IG7KYs3gJ6jr/pubchart?oid=97645019&format=interactive"
+                        allowfullscreen
+                        loading="lazy"
+                        class="dashboard-iframe"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
