@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Upload Manifest{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-lg p-4">
+            <h1 class="mb-3"><i class="fas fa-upload me-2 text-primary"></i>Upload Manifest</h1>
+            <form id="uploadForm" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="manifest" class="form-label">Select Excel or CSV file</label>
+                    <input class="form-control" type="file" name="manifest" id="manifest" accept=".xls,.xlsx,.csv" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" id="uploadBtn">
+                    <i class="fas fa-upload me-2"></i>Upload
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
